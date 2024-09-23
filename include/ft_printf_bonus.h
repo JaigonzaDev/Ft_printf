@@ -143,7 +143,7 @@ void				set_zeros(t_data *data);
 void				set_spaces_num(t_data *data);
 void				itoa_base_buf(t_data *data, t_promotion promo);
 void				ft_memset(void *ptr, unsigned char c, size_t len);
-t_bool				ft_strchr(const char *s, char c);
+t_bool				my_strchr(const char *s, char c);
 void				memset_structs(t_data *data);
 int					ft_strlen(const char *s);
 

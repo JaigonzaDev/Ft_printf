@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-t_bool	ft_strchr(const char *s, char c)
+t_bool	my_strchr(const char *s, char c)
 {
 	if (NULL == s)
 		return (FALSE);

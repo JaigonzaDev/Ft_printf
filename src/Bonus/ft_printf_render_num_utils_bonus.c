@@ -23,7 +23,7 @@ void	set_zeros_no_precision(t_data *data)
 				- data->buf_tmp_index;
 		if (data->specifier == 'u')
 			return ;
-		else if ((ft_strchr("xX", data->specifier) && data->flags.hash_flag
+		else if ((my_strchr("xX", data->specifier) && data->flags.hash_flag
 				&& data->buf_tmp[0] != '0') || (data->specifier != 'p'))
 			data->space.zeros_value -= 2;
 		else if ((data->negative_value || (!data->negative_value
@@ -52,7 +52,7 @@ void	set_spaces_num(t_data *data)
 {
 	data->space.space_value = data->space.width_value - data->space.zeros_value
 		- data->buf_tmp_index;
-	if ((ft_strchr("xX", data->specifier) && data->flags.hash_flag == TRUE
+	if ((my_strchr("xX", data->specifier) && data->flags.hash_flag == TRUE
 			&& data->buf_tmp[0] != '0') || (data->specifier == 'p'))
 	{
 		data->space.space_value -= 2;
@@ -69,7 +69,7 @@ void	set_spaces_num(t_data *data)
 
 void	put_0x_in_buf(t_data *data)
 {
-	if (((ft_strchr("xX", *data->s)) && (data->flags.hash_flag)
+	if (((my_strchr("xX", *data->s)) && (data->flags.hash_flag)
 			&& (data->buf_tmp[0] != '0')) || data->specifier == 'p')
 	{
 		if (data->specifier == 'X')

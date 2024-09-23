@@ -18,7 +18,7 @@ void	memset_structs(t_data *data)
 	ft_memset(&(data->space), 0, sizeof(t_space));
 }
 
-t_bool	ft_strchr(const char *s, char c)
+t_bool	my_strchr(const char *s, char c)
 {
 	if (NULL == s)
 		return (FALSE);

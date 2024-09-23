@@ -43,7 +43,8 @@ typedef struct s_data
 	t_bool			prefix_flag;
 }					t_data;
 
-t_bool				ft_strchr(const char *s, char c);
+int	ft_printf(char const *str, ...);
+t_bool				my_strchr(const char *s, char c);
 void				render_num(t_data *data);
 void				render_char(t_data *data);
 void				put_char_in_stdout(t_data *data, int c);

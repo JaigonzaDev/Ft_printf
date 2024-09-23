@@ -14,7 +14,7 @@
 
 static void	render_format(t_data *data)
 {
-	if (ft_strchr("cs%", *data->s))
+	if (my_strchr("cs%", *data->s))
 		render_char(data);
 	else
 		render_num(data);
@@ -22,11 +22,11 @@ static void	render_format(t_data *data)
 
 static t_bool	check_format(t_data *data)
 {
-	if (!ft_strchr("cspdiuxX%", *data->s))
+	if (!my_strchr("cspdiuxX%", *data->s))
 		return (FALSE);
-	if (ft_strchr("diu", *data->s))
+	if (my_strchr("diu", *data->s))
 		data->num_base = 10;
-	if (ft_strchr("xXp", *data->s))
+	if (my_strchr("xXp", *data->s))
 		data->num_base = 16;
 	data->specifier = *data->s;
 	data->prefix_flag = 0;

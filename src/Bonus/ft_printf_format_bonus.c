@@ -14,9 +14,9 @@
 
 void	check_num(t_data *data)
 {
-	if (ft_strchr("diu", *data->s))
+	if (my_strchr("diu", *data->s))
 		data->num_base = 10;
-	else if (ft_strchr("xXp", *data->s))
+	else if (my_strchr("xXp", *data->s))
 	{
 		data->num_base = 16;
 		if (*data->s == 'X')
@@ -31,7 +31,7 @@ int	ft_atoi(t_data *data)
 	int	value;
 
 	value = 0;
-	while (ft_strchr("0123456789", *data->s))
+	while (my_strchr("0123456789", *data->s))
 		value = (value * 10) + (*data->s++ - '0');
 	return (value);
 }
@@ -51,7 +51,7 @@ void	check_flags(t_data *data)
 {
 	char	flag;
 
-	while (ft_strchr("0 +#-", *data->s))
+	while (my_strchr("0 +#-", *data->s))
 	{
 		flag = *data->s;
 		if (flag == '0')
@@ -81,11 +81,11 @@ t_bool	check_format(t_data *data)
 	check_value(data, &(data->space.width_value));
 	if (*data->s == '.' && *(++data->s))
 		check_value(data, &(data->space.precision_value));
-	if (!ft_strchr("cspdiuxX%", *data->s))
+	if (!my_strchr("cspdiuxX%", *data->s))
 		return (FALSE);
 	else
 	{
-		if (ft_strchr("diuxXp", *data->s))
+		if (my_strchr("diuxXp", *data->s))
 			check_num(data);
 		data->specifier = *data->s;
 		return (TRUE);

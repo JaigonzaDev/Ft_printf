@@ -85,9 +85,9 @@ void	render_num(t_data *data)
 	t_promotion	promo;
 
 	promo.l = 0;
-	if (ft_strchr("di", *data->s))
+	if (my_strchr("di", *data->s))
 		promo.l = (long)va_arg(data->ap, int);
-	else if (ft_strchr("p", *data->s))
+	else if (my_strchr("p", *data->s))
 	{
 		promo.ul = (unsigned long)va_arg(data->ap, void *);
 		if (promo.ul == 0)
@@ -96,7 +96,7 @@ void	render_num(t_data *data)
 			return ;
 		}
 	}
-	else if (ft_strchr("xXu", *data->s))
+	else if (my_strchr("xXu", *data->s))
 		promo.ul = (unsigned long)va_arg(data->ap, unsigned int);
 	render_num_in_buf(data, promo);
 }

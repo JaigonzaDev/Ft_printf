@@ -14,7 +14,7 @@
 
 void	render_format(t_data *data)
 {
-	if (ft_strchr("cs%", *data->s))
+	if (my_strchr("cs%", *data->s))
 		render_char(data);
 	else
 		render_num(data);

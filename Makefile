@@ -48,7 +48,7 @@ OBJS_BONUS = $(patsubst $(SRC_BONUS_PATH)/%.c, $(BONUS_BUILD_PATH)/%.o, $(SRCS_B
 
 # Compilador y flags
 CC = cc
-CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra -g
 AR = ar -rcs
 RM = rm -rf
 

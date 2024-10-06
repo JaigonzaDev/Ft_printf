@@ -31,14 +31,12 @@ You will implement the following functions to mimic the behavior of the standard
 - Formatting: `format_string`, `format_char`, `format_number`, `format_pointer`
 
 ### Part 2: Additional Utility Functions
-These functions add extended functionality beyond what's available in the standard C library:
 
 - Buffer management: `write_in_buf`, `stdout_buf`
 - String manipulation for formatting: `put_str_in_buf`, `put_char_in_buf`
 - Precision and width handling: `set_space`, `set_zeros`, `set_spaces_num`
 
 ### Bonus Part: Additional Formatting Features
-If you complete the mandatory part, you can extend your library with:
 
 - Support for hexadecimal and octal formats: `itoa_base_buf`, `render_num`
 - Support for flags and width/precision specifiers

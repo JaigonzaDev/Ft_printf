@@ -6,15 +6,23 @@
 /*   By: jaigonza <jaigonza@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 16:44:43 by jaigonza          #+#    #+#             */
-/*   Updated: 2024/07/03 17:33:05 by jaigonza         ###   ########.fr       */
+/*   Updated: 2024/10/06 14:15:29 by jaigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf_bonus.h"
 
-	// check width
-			// write precise n from s
-		// width - strlen [     hello]
+/*
+ * The set_space() function calculates the amount of space that needs 
+ * to be added before or after a string based on the specified width 
+ * and precision values in the t_data structure. It determines the 
+ * length of the string and adjusts the space_value accordingly, 
+ * taking into account whether the precision is greater or less 
+ * than the string length. If width_value is not greater than zero, 
+ * it calculates space_value as the difference between width_value 
+ * and string length.
+ */
+
 void	set_space(t_data *data, char *s)
 {
 	int	len;
@@ -39,12 +47,16 @@ void	set_space(t_data *data, char *s)
 		data->space.space_value = data->space.width_value - len;
 }
 
-//[-][width][precision]
-	// set space -> justified & width
-	// write with justified
-		// put string
-		// put spaces
-		// put string
+/*
+ * The render_str_in_buf() function writes a string to the buffer, 
+ * taking into account the specified width, precision, and flags 
+ * in the t_data structure. If the string is NULL, it substitutes 
+ * it with "(null)". It calculates the amount of space to be added 
+ * using set_space(). Depending on the minus_flag, it either 
+ * writes the string followed by spaces or spaces followed by the 
+ * string, ensuring that the precision is respected if set.
+ */
+
 void	render_str_in_buf(t_data *data, char *s)
 {
 	if (s == NULL)
@@ -70,7 +82,16 @@ void	render_str_in_buf(t_data *data, char *s)
 	}
 }
 
-//[-][width]
+/*
+ * The render_char_in_buf() function writes a single character to 
+ * the buffer, considering the specified width in the t_data 
+ * structure. If the width is greater than 1, it checks the 
+ * minus_flag to determine if the character should be placed at 
+ * the start or end, filling the remaining width with spaces. 
+ * If the width is not greater than 1, it simply writes the 
+ * character to the buffer.
+ */
+
 void	render_char_in_buf(t_data *data, int c)
 {
 	int	width;
@@ -93,7 +114,6 @@ void	render_char_in_buf(t_data *data, int c)
 		put_char_in_buf((char)c, 1, data);
 }
 
-		// type promotion
 void	render_char(t_data *data)
 {
 	if (*data->s == '%')

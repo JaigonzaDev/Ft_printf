@@ -6,11 +6,18 @@
 /*   By: jaigonza <jaigonza@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 16:44:24 by jaigonza          #+#    #+#             */
-/*   Updated: 2024/07/04 16:36:31 by jaigonza         ###   ########.fr       */
+/*   Updated: 2024/10/06 14:15:31 by jaigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf_bonus.h"
+
+/*
+ * The render_format() function determines how to render data based on the format 
+ * specifier in the string (s) of the t_data structure. 
+ * If the specifier is 'c', 's', or '%', it calls the render_char() function. 
+ * Otherwise, it calls the render_num() function to handle numerical formats.
+ */
 
 void	render_format(t_data *data)
 {
@@ -20,7 +27,15 @@ void	render_format(t_data *data)
 		render_num(data);
 }
 
-	// rellena de 0;
+/*
+ * The init_data() function initializes the t_data structure by setting the 
+ * written character count to zero, the string pointer to the provided string, 
+ * and allocating memory for a buffer of a specified size. If memory allocation 
+ * fails, it returns FALSE. It also initializes the buffer to zero and sets 
+ * the buffer index and temporary buffer index to zero. 
+ * It returns TRUE upon successful initialization.
+ */
+
 t_bool	init_data(t_data *data, const char *str)
 {
 	data->written = 0;
@@ -34,12 +49,29 @@ t_bool	init_data(t_data *data, const char *str)
 	return (TRUE);
 }
 
+/*
+ * The clean_function() function cleans up the resources associated with the 
+ * t_data structure. It ends the variable argument list using va_end(), 
+ * frees the allocated memory for the buffer, and sets the buffer pointer to 
+ * NULL to prevent dangling pointers.
+ */
+
 void	clean_function(t_data *data)
 {
 	va_end(data->ap);
 	free(data->buffer);
 	data->buffer = NULL;
 }
+
+/*
+ * The ft_printf() function mimics the behavior of the standard printf function. 
+ * It takes a format string and a variable number of arguments. It initializes 
+ * the t_data structure, processes the format string, and calls appropriate 
+ * rendering functions for each format specifier encountered. If a valid 
+ * specifier is found, it renders the corresponding output; otherwise, it writes 
+ * regular characters to the buffer. Finally, it outputs the buffered data, 
+ * cleans up resources, and returns the total number of characters written.
+ */
 
 int	ft_printf(char const *str, ...)
 {
